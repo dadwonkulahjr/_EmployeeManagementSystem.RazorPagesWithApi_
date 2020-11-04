@@ -1,0 +1,49 @@
+﻿@page
+@model EmployeeManagementSystem.UI.Pages.ListOfEmployees.IndexModel
+@{
+    ViewData["Title"] = "Employee Information";
+}
+
+<h4>
+    Employees Personal Information <i class="oi oi-info"></i>
+</h4>
+<hr />
+@if (Model.Employees.Any())
+{
+
+    <section class="card-deck">
+
+        @foreach (var emp in Model.Employees)
+        {
+            <partial name="_empPersonInfo" model="emp" />
+        }
+    </section>
+}
+else
+{
+    <div class="card-deck text-primary">
+        <div class="card mt-2">
+            <div class="card-header">
+                <h4>
+                    No record yet to be display.
+                    
+                </h4>
+            </div>
+            <div class="card-body">
+                <h5>
+                    Click the button below to create new record.
+                    <i class="oi oi-arrow-bottom"></i>
+                </h5>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a asp-page="#" class="btn btn-outline-primary w-100 p-3">
+                            Create new record
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

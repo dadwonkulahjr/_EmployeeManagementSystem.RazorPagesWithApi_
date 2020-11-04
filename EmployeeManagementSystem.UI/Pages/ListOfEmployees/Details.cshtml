@@ -1,0 +1,105 @@
+﻿@page "{id:int?}"
+@model EmployeeManagementSystem.UI.Pages.ListOfEmployees.DetailsModel
+@{
+    ViewData["Title"] = "Employee Details";
+}
+<h4>
+    Employee Details <i class="oi oi-info"></i>
+</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>
+                            First Name
+                        </td>
+                        <td>
+                            Last Name
+                        </td>
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            Gender
+                        </td>
+                        <td>
+                            Salary
+                        </td>
+                        <td>
+                            Date Of Birth
+                        </td>
+                        <td>
+                            Skill
+                        </td>
+                        <td>
+                            Department
+                        </td>
+                        <td>
+                            Action
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Model.Employee.FirstName
+                        </td>
+                        <td>
+                            @Model.Employee.LastName
+                        </td>
+                        <td>
+                            @Model.Employee.Email
+                        </td>
+                        <td>
+                            @Model.Employee.Gender
+                        </td>
+                        <td>
+                            @Model.Employee.Salary.Value.ToString("c")
+                        </td>
+                        <td>
+                            @Model.Employee.DateOfBirth.ToShortDateString()
+                        </td>
+                        <td>
+                            @Model.Employee.Skill.SkillName
+                        </td>
+                        <td>
+                            @Model.Employee.Department.DepartmentName
+                        </td>
+                        <td>
+                            <div class="text-norap">
+                                <a class="btn btn-sm btn-outline-secondary mb-1" asp-page="Edit" asp-route-id="@Model.Employee.EmployeeId">Edit</a>
+                                <a class="btn btn-sm btn-outline-danger" asp-page="Delete" asp-route-id="@Model.Employee.EmployeeId">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+<div class="justify-content-center">
+    <div class="col-sm-12">
+        <div class="card mt-2">
+            <div class="card-body">
+                <img src="@Model.Employee.PhotoPath" class="card-img-top img-thumbnail" style="width:400px;" />
+            </div>
+            <div class="card-footer text-center">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a asp-page="Index" class="btn btn-outline-secondary p-3 w-100">
+                            Back to List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+

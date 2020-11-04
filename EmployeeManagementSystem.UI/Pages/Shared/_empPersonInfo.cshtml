@@ -1,0 +1,19 @@
+﻿@model Employee
+
+<div class="justify-content-center">
+    <div class="col-sm-12">
+        <div class="card mt-2">
+            <h5 class="card-header bg-primary text-white card-title">
+                @Model.FirstName @Model.LastName
+            </h5>
+            <div class="card-body">
+                <img src="@Model.PhotoPath" class="card-img-top rounded-circle" style="width:400px;" />
+                <div class="text-center mt-2">
+                    <a class="btn btn-outline-secondary" asp-page="Details" asp-route-id="@Model.EmployeeId">Details</a>
+                    <a class="btn btn-outline-secondary" asp-page="Edit" asp-route-id="@Model.EmployeeId">Edit</a>
+                    <a class="btn btn-outline-danger" asp-page="Delete" asp-route-id="@Model.EmployeeId">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
